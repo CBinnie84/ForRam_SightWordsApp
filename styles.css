@@ -1,54 +1,83 @@
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #000; /* Dark background to simulate space */
-    color: #fff; /* White text for contrast */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sight Words Adventure</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000; /* Dark background to simulate space */
+            color: #fff; /* White text for contrast */
+        }
 
-#game-container {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background for the game container */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
-}
+        #game-container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background for the game container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+        }
 
-#word-display {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #fff; /* White text for visibility */
-}
+        #game-container img {
+            max-width: 100%; /* Ensure the image doesn't exceed the container width */
+            height: auto;    /* Maintain the aspect ratio */
+            margin-bottom: 20px; /* Add some spacing below the image */
+        }
 
-input {
-    padding: 10px;
-    font-size: 16px;
-    margin: 5px;
-}
+        #word-display {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff; /* White text for visibility */
+        }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 5px;
-    cursor: pointer;
-    background-color: #4CAF50; /* Green button color */
-    color: #fff; /* White text for visibility */
-    border: none;
-    border-radius: 5px;
-}
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
 
-button:disabled {
-    background-color: #ddd; /* Light gray for disabled state */
-    cursor: not-allowed;
-}
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green button color */
+            color: #fff; /* White text for visibility */
+            border: none;
+            border-radius: 5px;
+        }
 
-#progress {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #fff; /* White text for visibility */
-}
+        button:disabled {
+            background-color: #ddd; /* Light gray for disabled state */
+            cursor: not-allowed;
+        }
 
-/* Add more styling as needed */
+        #progress {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff; /* White text for visibility */
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <!-- Add the image element here -->
+        <img src="astronaut_in_spaceship.jpg" alt="Astronaut in a spaceship">
+
+        <h1 id="word-display">Click to Start</h1>
+        <input type="text" id="name-input" placeholder="Enter your name">
+        <input type="text" id="word-input" placeholder="Type the word">
+        <button id="check-word-btn">Check Word</button>
+        <button id="next-word-btn" disabled>Next Word</button>
+        <div id="progress">Progress: 0%</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
