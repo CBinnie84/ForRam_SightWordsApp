@@ -10,8 +10,17 @@ const progressDisplay = document.getElementById('progress');
 let currentWordIndex = 0;
 let correctAnswers = 0;
 
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 function showNextWord() {
     const allWords = [...sightWordsFirstGrade, ...sightWordsSecondGrade];
+    shuffleArray(allWords);
 
     if (currentWordIndex < allWords.length) {
         const currentWord = allWords[currentWordIndex];
@@ -49,3 +58,4 @@ nextWordBtn.addEventListener('click', () => {
 checkWordBtn.addEventListener('click', checkWord);
 
 showNextWord();
+
