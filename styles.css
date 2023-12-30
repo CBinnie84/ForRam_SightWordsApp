@@ -5,30 +5,50 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background-color: #000; /* Dark background to simulate space */
+    color: #fff; /* White text for contrast */
 }
 
 #game-container {
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background for the game container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
 }
 
 #word-display {
     font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff; /* White text for visibility */
 }
 
-#word-input {
-    margin-top: 10px;
-    padding: 5px;
+input {
+    padding: 10px;
     font-size: 16px;
+    margin: 5px;
 }
 
-#check-word-btn, #next-word-btn {
-    margin-top: 10px;
+button {
     padding: 10px 20px;
     font-size: 16px;
+    margin: 5px;
     cursor: pointer;
+    background-color: #4CAF50; /* Green button color */
+    color: #fff; /* White text for visibility */
+    border: none;
+    border-radius: 5px;
+}
+
+button:disabled {
+    background-color: #ddd; /* Light gray for disabled state */
+    cursor: not-allowed;
 }
 
 #progress {
     margin-top: 20px;
     font-size: 18px;
+    color: #fff; /* White text for visibility */
 }
+
+/* Add more styling as needed */
