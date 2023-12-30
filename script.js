@@ -16,13 +16,13 @@ let currentSentenceIndex = 0;
 let correctAnswers = 0;
 
 function generateSentences(words) {
-    return words.map(word => `The ${word} is ____.`);
+    return words.map(word => `I have a ___ in my pocket.`);
 }
 
 function showNextSentence() {
     if (currentSentenceIndex < sentences.length) {
         const currentSentence = sentences[currentSentenceIndex];
-        const sentenceWithBlanks = currentSentence.replace(/____/, '<span class="blank">____</span>');
+        const sentenceWithBlanks = currentSentence.replace(/___/g, '<span class="blank">____</span>');
 
         wordDisplay.innerHTML = `Hello ${nameInput.value}! ${sentenceWithBlanks}`;
         wordInput.value = '';
@@ -37,7 +37,7 @@ function showNextSentence() {
 
 function checkWord() {
     const currentSentence = sentences[currentSentenceIndex];
-    const blanksCount = (currentSentence.match(/____/g) || []).length;
+    const blanksCount = (currentSentence.match(/___/g) || []).length;
 
     for (let i = 0; i < blanksCount; i++) {
         const currentWord = getCurrentWord();
@@ -51,7 +51,7 @@ function checkWord() {
     const progress = Math.round((correctAnswers / blanksCount) * 100);
     progressDisplay.textContent = `Progress: ${progress}%`;
 
-    const completedSentence = currentSentence.replace(/____/, `<span class="completed-blank">${getCurrentWord()}</span>`);
+    const completedSentence = currentSentence.replace(/___/g, `<span class="completed-blank">${getCurrentWord()}</span>`);
     wordDisplay.innerHTML = `Good job, ${nameInput.value}! ${completedSentence}`;
 
     checkWordBtn.disabled = true;
