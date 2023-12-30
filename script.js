@@ -1,4 +1,4 @@
-const sightWordsFirstGrade = ["the", "and", "you", "my", "is", "it", "in", "to", "we", "go", "of", "a",/* Add more first-grade words here */];
+const sightWordsFirstGrade = ["the", "and", "you", "my", "is", "it", "in", "to", "we", "go", /* Add more first-grade words here */];
 const sightWordsSecondGrade = ["all", "am", "are", "at", "ate", "be", "black", "brown", "but", "came", "did", "do", "eat", "four", "get", "good", "have", "he", "into", "like", "must", "new", "no", "now", "on", "our", "out", "please", "pretty", "ran", "ride", "saw", "say", "she", "so", "soon", "that", "there", "they", "this", "too", "under", "want", "was", "well", "went", "what", "white", "who", "will", "with", "yes", /* Add more second-grade words here */];
 
 const allSightWords = [...sightWordsFirstGrade, ...sightWordsSecondGrade];
@@ -16,7 +16,16 @@ let currentSentenceIndex = 0;
 let correctAnswers = 0;
 
 function generateSentences(words) {
-    return words.map(word => `I have a ___ in my pocket.`);
+    const uniqueSentences = new Set();
+
+    while (uniqueSentences.size < words.length) {
+        const randomWord = words[Math.floor(Math.random() * words.length)];
+        const sentence = `I have a ___ in my pocket.`.replace("___", randomWord);
+
+        uniqueSentences.add(sentence);
+    }
+
+    return [...uniqueSentences];
 }
 
 function showNextSentence() {
